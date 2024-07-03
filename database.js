@@ -6,3 +6,6 @@ const pool= mysql.createPool({
     password:"",
     database: "test_database1"
 }).promise()
+
+ const result = await  pool.query("Select * from books")
+ console.log(result)
