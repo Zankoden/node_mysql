@@ -7,5 +7,5 @@ const pool= mysql.createPool({
     database: "test_database1"
 }).promise()
 
- const result = await  pool.query("Select * from books")
- console.log(result)
+ const [rows] = await  pool.query("Select * from books")
+ console.log(rows)
