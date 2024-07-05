@@ -1,9 +1,18 @@
 import express from "express";
+import cors from "cors";
 import { getBooks, getBookById, createBook, deleteBookById, updateBookById } from "./database.js";
 
 const app = express();
 
 app.use(express.json());
+
+// Use the cors middleware
+app.use(cors({
+    // origin: 'http://localhost:5173', // Replace with your React app's origin
+    origin: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the methods you need
+    credentials: true, // If you need to include credentials like cookies in the request
+}));
 
 app.get("/books", async (req, res) => {
     try {
